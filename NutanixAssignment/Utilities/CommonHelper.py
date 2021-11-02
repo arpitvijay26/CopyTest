@@ -7,17 +7,18 @@ from NutanixAssignment.Utilities.OSHelper import FileSeparator
 
 
 def listdir(location):
-    return list_dir(location)
-
+    # return list_dir(location)
+    pass
 
 def isfile(location):
-    return is_file(location)
-
+    # return is_file(location)
+    pass
 
 def md5sum(file):
-    with open(file, 'rb') as fp:
-        data = fp.read()
-    return md5(data).hexdigest()
+    # with open(file, 'rb') as fp:
+    #     data = fp.read()
+    # return md5(data).hexdigest()
+    pass
 
 
 def file_separator(os):
