@@ -1,0 +1,24 @@
+{
+  "test_data_details": [
+  {
+      "source": "/Users/arpit/Desktop/git/Test/CopyTest/TestFolder/CopyWorkedFine/Source",
+      "destination": "/Users/arpit/Desktop/git/Test/CopyTest/TestFolder/CopyWorkedFine/Destination",
+      "os": "posix"
+  },
+  {
+      "source": "/Users/arpit/Desktop/git/Test/CopyTest/TestFolder/FileIntegrityIssue/Source",
+      "destination": "/Users/arpit/Desktop/git/Test/CopyTest/TestFolder/FileIntegrityIssue/Destination",
+      "os": "posix"
+  },
+  {
+      "source": "/Users/arpit/Desktop/git/Test/CopyTest/TestFolder/JunkFilesDestination/Source",
+      "destination": "/Users/arpit/Desktop/git/Test/CopyTest/TestFolder/JunkFilesDestination/Destination",
+      "os": "posix"
+  },
+  {
+      "source": "/Users/arpit/Desktop/git/Test/CopyTest/TestFolder/FilesMissingInDestination/Source",
+      "destination": "/Users/arpit/Desktop/git/Test/CopyTest/TestFolder/FilesMissingInDestination/Destination",
+      "os": "posix"
+  }
+  ]
+}
