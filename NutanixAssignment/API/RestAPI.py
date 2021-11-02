@@ -14,17 +14,8 @@ def index():
 @app.route('/testcopy', methods=['GET', 'POST'])
 def test_copy_func():
     """
-        This function will reserve any free user available in Database.
+        This function will test copy functionality.
         URL Format: http://<machine-ip>/testcopy?os=<os-type>&source=<source-directory>&destination=<destination-directory>
-        Here,
-        :type is user_type which you want to reserve. Ex. bvt, cloudbvt etc
-        :platform is for which os platform, you want to reserve user
-        :tag is Jenkins Build Tag in case of Jenkins trigger or machine hostname in case of manual trigger
-        :return:
-        HTTP 200 with JSON Object
-        {"user_type": {"id": user_id, "username": "username", "password": "base64 encoded password"}}
-        or
-        HTTP 403 is failed to return user
         """
     try:
         platform = request.args.get('os')
