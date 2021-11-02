@@ -24,3 +24,7 @@
 
 #Additional things to do :
 #Provide rest API to trigger the test & get all 4 results separately
+
+#Python Requirements: Python 3.7 and above
+#OS Requirements: Tested on macos. Should work on Linux/Unix platform. Not tested on Windows.
+# API: Work in progress
