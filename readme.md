@@ -5,11 +5,11 @@
 
 #As a part of QA, we need to validate if all the content of src is properly copied to dst. WRITE AUTOMATION FOR BELOW VALIDATION :
 #And this includes 4 main aspects to validate :
-#  - All files/dirs copied
-#  - Data integrity maintained - list of corrupt files/dirs
-#  - Is there any junk (file/dir) copied in dst
-#  - Any missing file/dir in dst
-# Use below helper methods to implement solution. DO NOT USE ANY additional libraries i.e do not import anything other than below methods in your solution.
+#- All files/dirs copied
+#- Data integrity maintained - list of corrupt files/dirs
+#- Is there any junk (file/dir) copied in dst
+#- Any missing file/dir in dst
+#Use below helper methods to implement solution. DO NOT USE ANY additional libraries i.e do not import anything other than below methods in your solution.
 
 
 #Helper methods (DO NOT IMPLEMENT THESE METHODS. THESE ARE AVAILABLE FOR YOU TO USE)
@@ -24,3 +24,7 @@
 
 #Additional things to do :
 #Provide rest API to trigger the test & get all 4 results separately
+
+# Python Requirements: Python 3.7 and above
+# OS Requirements: Tested on macos. Should work on Linux/Unix platform. Not tested on Windows.
+# API: Work in progress
