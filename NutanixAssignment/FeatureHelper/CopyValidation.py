@@ -30,6 +30,7 @@ class CopyValidator:
         list_of_files_directories = list(set(self.list_of_source_files_folders).intersection(self.list_of_destination_files_folders))
         # We are using set here as while running Set is faster then List Comprehension. Pros of Sets is Faster Speed and
         # Cons here is additional space requirement
+        print(f"List of Files and Directories which were copied: {list_of_files_directories}")
         return list_of_files_directories
 
     def list_of_files_integrity_problem(self):
@@ -44,6 +45,7 @@ class CopyValidator:
                 if not md5sum(self.source + self.file_separator + file) == \
                        md5sum(self.destination + self.file_separator + file):
                     files_with_integrity_problem.append(file)
+        print(f"List of Files which have integrity issue: {files_with_integrity_problem}")
         return files_with_integrity_problem
 
     def list_of_junk_files_in_destinaton(self):
@@ -55,6 +57,7 @@ class CopyValidator:
         list_of_junk_files_dest = list(set(self.list_of_destination_files_folders).difference(set(self.list_of_source_files_folders)))
         # We are using set here as while running Set is faster then List Comprehension. Pros of Sets is Faster Speed and
         # Cons here is additional space requirement
+        print(f"List of Junk Files in Destination: {list_of_junk_files_dest}")
         return list_of_junk_files_dest
 
     def list_of_missing_files_in_destination(self):
@@ -66,6 +69,7 @@ class CopyValidator:
         list_of_missing_files = list(set(self.list_of_source_files_folders) - set(self.list_of_destination_files_folders))
         # We are using set here as while running Set is faster then List Comprehension. Pros of Sets is Faster Speed and Cons here is additional
         # space requirement
+        print(f"List of Missing Files in Destination: {list_of_missing_files}")
         return list_of_missing_files
 
 
@@ -73,6 +77,4 @@ if __name__ == '__main__':
     copy_validator = CopyValidator("/Users/arpit/Documents/Mac/Automation/cwa-mac-automation/WorkspaceAutomation"
                                    "/Webservice", "/Users/arpit/Documents/Mac/Automation/cwa-mac-automation"
                                     "/WorkspaceAutomation/Webservice", "posix")
-    # print(copy_validator.list_of_files_directories_copied())
-
     print(copy_validator.list_of_files_integrity_problem())

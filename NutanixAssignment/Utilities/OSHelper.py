@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 from abc import ABC, abstractmethod
-from NutanixAssignment.Utilities import Config
+from NutanixAssignment.Utilities import Constant
 
 
 class OSHelper(ABC):
@@ -53,8 +53,8 @@ class FileSeparator:
         :param os: String Param. Specifies on which os we want to check functionality
         :return: Object of Unix or Windows Helper class
         """
-        if os in Config.supported_platform:
-            file_separator = {Config.supported_platform[0]: WindowsOSHelper, Config.supported_platform[1]: UnixOSHelper}
+        if os in Constant.supported_platform:
+            file_separator = {Constant.supported_platform[0]: WindowsOSHelper, Constant.supported_platform[1]: UnixOSHelper}
             return file_separator[os]()
         else:
             print(f"OS Platform is not supported")

@@ -1,5 +1,5 @@
 from flask import Flask, request, json
-from NutanixAssignment.Utilities import Config
+from NutanixAssignment.Utilities import Constant
 from NutanixAssignment.Test.TestCopyFunctionality import TestCopy
 
 app = Flask(__name__)
@@ -14,20 +14,25 @@ def index():
 @app.route('/testcopy', methods=['GET', 'POST'])
 def test_copy_func():
     """
-        This function will test copy functionality.
+        This function will reserve any free user available in Database.
         URL Format: http://<machine-ip>/testcopy?os=<os-type>&source=<source-directory>&destination=<destination-directory>
-        """
+    """
     try:
         platform = request.args.get('os')
-        if platform not in Config.supported_platform:
+        if platform not in Constant.supported_platform:
             print(f'Specified Platform {platform} is not supported. Returning error Code 403.')
             return f'Specified Platform {platform} is not supported', 403
         source_location = request.args.get('source')
+        print(f"Source Location is: {source_location}")
         destination_location = request.args.get('destination')
+        print(f"Destination Location is: {destination_location}")
         test_copy = TestCopy(source_location, destination_location, platform)
-        val1, val2, val3, val4 = test_copy.validate_if_copy_worked_fine()
-        response = create_json("val1", "val2", "val3", "val4")
-        print(response)
+        val = test_copy.validate_if_copy_worked_correctly()
+        print(f"Files copied from source to destination: {val[0]}")
+        print(f"Junk Files in destination not available in source: {val[1]}")
+        print(f"Files missing in destination but are present in source: {val[2]}")
+        print(f"Files with integrity issue: {val[3]}")
+        response = create_json(val)
         if response:
             return response, 200
         else:
@@ -35,14 +40,13 @@ def test_copy_func():
     except Exception as err:
         return f"Some issue in performing operation on API"
 
-def create_json(a, b, c, d):
+def create_json(a):
     dict = {
-        "List of Copied Files and Folders": a,
-        "List of Files with Integrity Problem": b,
-        "List of Extra Files in Destination": c,
-        "List of Missing Files in Destination": d
+        "List of Copied Files and Folders": a[0],
+        "List of Files with Integrity Problem": a[3],
+        "List of Extra Files in Destination": a[2],
+        "List of Missing Files in Destination": a[1]
     }
-    print(dict)
     return json.dumps(dict, indent = 4)
 
 

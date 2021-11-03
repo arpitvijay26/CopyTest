@@ -47,10 +47,9 @@ class TestCopy:
 if __name__ == '__main__':
     with open("../TestFolder/test_file.json", "r") as fp:
         test_data = json.load(fp)
-
-    for data in test_data['test_data_details']:
-        test = TestCopy(data["source"], data["destination"], data["os"])
-        print(test.validate_if_copy_worked_correctly())
-
-
-
+    for data in test_data:
+        test = TestCopy(test_data[data]["source"], test_data[data]["destination"], test_data[data]["os"])
+        val = test.validate_if_copy_worked_correctly()
+        print(f"Test Run: {data}")
+        print(val)
+        print("_____________________________________")
