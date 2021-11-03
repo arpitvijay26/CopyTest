@@ -38,7 +38,7 @@ From IDE like Pycharm:
   Open RestAPI file in IDE and it has a main section. You can run from it.
   
 # Run Using API: To run using WebBrowser or Postman, API to use:
-#http://localhost:8080/testcopy?os=<os>&source=<source_folder_absolute_path>&destination=<destination_folder_absolute_path>
+#http://localhost:8080/testcopy?os=<os_name>&source=<source_folder_absolute_path>&destination=<destination_folder_absolute_path>
   
 # Test using Code:
 Run APICaller.py file. It will ask for location of json file. Provide the absolute path to json file and test will be run.
