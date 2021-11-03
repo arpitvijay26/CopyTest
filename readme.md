@@ -1,5 +1,5 @@
 #Software "cp" takes two argument. src -> Source location , dst -> DestinationLocation.
-# "cp" copies all content of src ->dst.
+#"cp" copies all content of src ->dst.
 #Syntax -> cp src dst
 
 
@@ -25,6 +25,20 @@
 #Additional things to do :
 #Provide rest API to trigger the test & get all 4 results separately
 
-# Python Requirements: Python 3.7 and above
-# OS Requirements: Tested on macos. Should work on Linux/Unix platform. Not tested on Windows.
-# API: Work in progress
+# System Requirements:
+#Python Requirements: Python 3.7 and above
+#OS Requirements: Tested on macos. Should work on Linux/Unix platform. Not tested on Windows.
+
+# How to Run:
+#From cmdline:
+  #On Terminal run command:
+  #export FLASK_APP=RestAPI
+  #flask run
+#From IDE like Pycharm:
+  #Open RestAPI file in IDE and it has a main section. You can run from it.
+# Run Using API: To run using WebBrowser or Postman, API to use:
+#http://localhost:8080/testcopy?os=<os>&source=<source_folder_absolute_path>&destination=<destination_folder_absolute_path>
+# Test using Code:
+#Run APICaller.py file. It will ask for location of json file. Provide the absolute path to json file and test will be run.
+#JSON format should be same as NutanixAssignment/TestFolder/test_using_api.json file
+
