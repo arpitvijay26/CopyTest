@@ -26,7 +26,7 @@ class TestCopy:
         self.destination = destination
         self.os = os
 
-    def validate_if_copy_worked_correctly(self):
+    def test_copy_worked_correctly(self):
         """
         Test Function which will validate copy functionality completely
         :return: Tuple with list of 4 things in that order:
@@ -49,7 +49,7 @@ if __name__ == '__main__':
         test_data = json.load(fp)
     for data in test_data:
         test = TestCopy(test_data[data]["source"], test_data[data]["destination"], test_data[data]["os"])
-        val = test.validate_if_copy_worked_correctly()
+        val = test.test_copy_worked_correctly()
         print(f"Test Run: {data}")
         print(val)
         print("_____________________________________")

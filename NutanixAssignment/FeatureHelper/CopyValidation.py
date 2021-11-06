@@ -17,8 +17,10 @@ class CopyValidator:
     def __init__(self, source, destination, os):
         self.source = source
         self.destination = destination
-        self.list_of_source_files_folders = DirectoryListing.list_all_files_and_directories_recursive_relative_path(source)
-        self.list_of_destination_files_folders = DirectoryListing.list_all_files_and_directories_recursive_relative_path(destination)
+        self.list_of_source_files_folders = DirectoryListing.list_all_files_and_directories_recursive_relative_path\
+            (source, os)
+        self.list_of_destination_files_folders = DirectoryListing.list_all_files_and_directories_recursive_relative_path\
+            (destination, os)
         self.file_separator_pattern = FileSeparator.file_separator_pattern(os)
         self.file_separator = self.file_separator_pattern.file_separator()
 
@@ -27,7 +29,8 @@ class CopyValidator:
         We use set method to find intersection of files/folders between source and destination.
         :return: List -> List of files/folders present in both Source and Destination
         """
-        list_of_files_directories = list(set(self.list_of_source_files_folders).intersection(self.list_of_destination_files_folders))
+        list_of_files_directories = list(set(self.list_of_source_files_folders).intersection
+                                         (self.list_of_destination_files_folders))
         # We are using set here as while running Set is faster then List Comprehension. Pros of Sets is Faster Speed and
         # Cons here is additional space requirement
         print(f"List of Files and Directories which were copied: {list_of_files_directories}")
@@ -54,7 +57,8 @@ class CopyValidator:
         take difference of set of destination with set of source files.
         :return: List -> List of files which are additionally present in Destination and are not in Source
         """
-        list_of_junk_files_dest = list(set(self.list_of_destination_files_folders).difference(set(self.list_of_source_files_folders)))
+        list_of_junk_files_dest = list(set(self.list_of_destination_files_folders).difference
+                                       (set(self.list_of_source_files_folders)))
         # We are using set here as while running Set is faster then List Comprehension. Pros of Sets is Faster Speed and
         # Cons here is additional space requirement
         print(f"List of Junk Files in Destination: {list_of_junk_files_dest}")
@@ -67,14 +71,16 @@ class CopyValidator:
         :return: List -> List of files which are present in Source and are not in Destination
         """
         list_of_missing_files = list(set(self.list_of_source_files_folders) - set(self.list_of_destination_files_folders))
-        # We are using set here as while running Set is faster then List Comprehension. Pros of Sets is Faster Speed and Cons here is additional
-        # space requirement
+        # We are using set here as while running Set is faster then List Comprehension. Pros of Sets is Faster Speed and
+        # Cons here is additional space requirement
         print(f"List of Missing Files in Destination: {list_of_missing_files}")
         return list_of_missing_files
 
 
 if __name__ == '__main__':
     copy_validator = CopyValidator("/Users/arpit/Documents/Mac/Automation/cwa-mac-automation/WorkspaceAutomation"
-                                   "/Webservice", "/Users/arpit/Documents/Mac/Automation/cwa-mac-automation"
-                                    "/WorkspaceAutomation/Webservice", "posix")
-    print(copy_validator.list_of_files_integrity_problem())
+    "/Webservice", "/Users/arpit/Documents/Mac/Automation/cwa-mac-automation/WorkspaceAutomation/Webservice", "posix")
+    copy_validator.list_of_files_integrity_problem()
+    copy_validator.list_of_files_directories_copied()
+    copy_validator.list_of_missing_files_in_destination()
+    copy_validator.list_of_junk_files_in_destinaton()

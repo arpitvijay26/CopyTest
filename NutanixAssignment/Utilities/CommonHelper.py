@@ -26,15 +26,14 @@ def file_separator(os):
 
 def removing_unwanted_chars_in_folder_location(source):
     """
-
-    :param source:
-    :return:
+    If user inputs last char in file path as / or \\, this function will trim it
+    :param source: String
+    :return: String
     """
-    # if source.startswith('\'') and source.endswith('\''):
-    #     source = source.replace('\'', '')
     if source[-1] == '/' or source[-1] == '\\':
         source = source[:-1]
     return source
+
 
 if __name__ == '__main__':
     a = file_separator("posix")

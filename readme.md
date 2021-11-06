@@ -27,7 +27,7 @@
 
 # System Requirements:
 Python Requirements: Python 3.7 and above
-OS Requirements: Tested on macos. Should work on Linux/Unix platform. Not tested on Windows.
+OS Requirements: Tested on macOS. Should work on Linux/Unix platform. Not tested on Windows.
 
 # How to Run:
 Install requirements using command pip3 install -r requirements.txt
@@ -36,7 +36,7 @@ From cmdline:
   export FLASK_APP=RestAPI
   flask run
 From IDE like Pycharm:
-  Open RestAPI file in IDE and it has a main section. You can run from it.
+  Open RestAPI file in IDE, and it has a main section. You can run from it.
   
 # Run Using API: To run using WebBrowser or Postman, API to use:
 #http://localhost:8080/testcopy?os=<os_name>&source=<source_folder_absolute_path>&destination=<destination_folder_absolute_path>

@@ -27,7 +27,7 @@ def test_copy_func():
         destination_location = request.args.get('destination')
         print(f"Destination Location is: {destination_location}")
         test_copy = TestCopy(source_location, destination_location, platform)
-        val = test_copy.validate_if_copy_worked_correctly()
+        val = test_copy.test_copy_worked_correctly()
         print(f"Files copied from source to destination: {val[0]}")
         print(f"Junk Files in destination not available in source: {val[1]}")
         print(f"Files missing in destination but are present in source: {val[2]}")
