@@ -30,6 +30,7 @@ Python Requirements: Python 3.7 and above
 OS Requirements: Tested on macos. Should work on Linux/Unix platform. Not tested on Windows.
 
 # How to Run:
+Install requirements using command pip3 install -r requirements.txt
 From cmdline:
   On Terminal run command:
   export FLASK_APP=RestAPI
@@ -46,24 +47,24 @@ JSON format should be same as NutanixAssignment/TestFolder/test_using_api.json f
 
 # Code Structure
 #NutanixAssignment
-#|
-  #Utilities: This has utility functions which can be used for test project.
-  #|
-    #OSHelper: It has OSHelper which is a factory pattern for running across different os. 
-    #Constant: Constant file will contain constants which can be used in project.
-    #CommonHelper: It contains dummy implementation of isfile, listdir and md5sum functions and some other helper functions.
-    #DirectoryListing: Using this class, we can get absolute and relative recursive listing of the folder.
-  #|
-  #FeatureHelper:
-    #CopyValidation: This contains CopyValidation class which will have reusable functions to validate copy functionality like files copied, file integrity issue,       #files missing in destination and junk files in destination.
-  #|
-  #Test:
-    #TestCopyFunctionality: This contains test class which will test all 4 functionality and return a tuple containing list of files copied, file integrity issue,       #files missing in destination and junk files in destination
-  #|
-  #TestFolder:
-    #This contains json file which we can supply to Test class and cover all 4 scenarios.
-  #|
-  #API:
-    #RestAPI: This will expose the API which will be used to call Test
-    #APICaller: This will contain code to call RestAPI and get list of 4 scenarios.
+>|
+  >Utilities: This has utility functions which can be used for test project.
+  >|
+    >OSHelper: It has OSHelper which is a factory pattern for running across different os. 
+    >Constant: Constant file will contain constants which can be used in project.
+    >CommonHelper: It contains dummy implementation of isfile, listdir and md5sum functions and some other helper functions.
+    >DirectoryListing: Using this class, we can get absolute and relative recursive listing of the folder.
+  >|
+  >FeatureHelper:
+    >CopyValidation: This contains CopyValidation class which will have reusable functions to validate copy functionality like files copied, file integrity issue,       >files missing in destination and junk files in destination.
+  >|
+  >Test:
+    >TestCopyFunctionality: This contains test class which will test all 4 functionality and return a tuple containing list of files copied, file integrity issue,       >files missing in destination and junk files in destination
+  >|
+  >TestFolder:
+    >This contains json file which we can supply to Test class and cover all 4 scenarios.
+  >|
+  >API:
+    >RestAPI: This will expose the API which will be used to call Test
+    >APICaller: This will contain code to call RestAPI and get list of 4 scenarios.
 
