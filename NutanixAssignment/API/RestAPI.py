@@ -23,22 +23,25 @@ def test_copy_func():
             print(f'Specified Platform {platform} is not supported. Returning error Code 403.')
             return f'Specified Platform {platform} is not supported', 403
         source_location = request.args.get('source')
-        print(f"Source Location is: {source_location}")
         destination_location = request.args.get('destination')
-        print(f"Destination Location is: {destination_location}")
-        test_copy = TestCopy(source_location, destination_location, platform)
-        val = test_copy.test_copy_worked_correctly()
-        print(f"Files copied from source to destination: {val[0]}")
-        print(f"Junk Files in destination not available in source: {val[1]}")
-        print(f"Files missing in destination but are present in source: {val[2]}")
-        print(f"Files with integrity issue: {val[3]}")
-        response = create_json(val)
-        if response:
-            return response, 200
+        if source_location != None and destination_location != None:
+            print(f"Source Location is: {source_location}")
+            print(f"Destination Location is: {destination_location}")
+            test_copy = TestCopy(source_location, destination_location, platform)
+            val = test_copy.test_copy_worked_correctly()
+            print(f"Files copied from source to destination: {val[0]}")
+            print(f"Junk Files in destination not available in source: {val[1]}")
+            print(f"Files missing in destination but are present in source: {val[2]}")
+            print(f"Files with integrity issue: {val[3]}")
+            response = create_json(val)
+            if response:
+                return response, 200
+            else:
+                return f"Problem in sending response: 500", 500
         else:
-            return f'All users reserved. Try again after sometime', 404
+            return f"Source and Destination need to be defined. Source/Destination Null Error: 400", 400
     except Exception as err:
-        return f"Some issue in performing operation on API"
+        return f"API not responding: 404", 404
 
 def create_json(a):
     dict = {
