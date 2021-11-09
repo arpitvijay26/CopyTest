@@ -11,10 +11,10 @@ def index():
     return "Webservice is running"
 
 
-@app.route('/testcopy', methods=['GET', 'POST'])
+@app.route('/testcopy', methods=['GET'])
 def test_copy_func():
     """
-        This function will reserve any free user available in Database.
+        This will call test copy functionality and validate copy functionality.
         URL Format: http://<machine-ip>/testcopy?os=<os-type>&source=<source-directory>&destination=<destination-directory>
     """
     try:
